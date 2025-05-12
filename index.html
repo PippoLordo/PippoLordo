@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Traditori della Patria - Edizione Completa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="backgroundMusic" loop>
+        <source src="sounds/background.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="game-container">
+        <div id="header">
+            <h1>⚔️ TRADITORI DELLA PATRIA ⚔️</h1>
+            <div id="stats">
+                <span>💰 <span id="gold">50</span></span>
+                <span>✨ <span id="magic">1</span></span>
+                <span>⭐ <span id="reputation">0</span></span>
+                <span>⚖️ <span id="alignment">neutrale</span></span>
+            </div>
+        </div>
+
+        <div id="scene-container">
+            <img id="background" class="background">
+            <div id="characters"></div>
+        </div>
+
+        <div id="combat-ui" class="hidden">
+            <div id="combat-message"></div>
+            <div id="combat-player-stats"></div>
+            <div id="health-bars">
+                <div class="health-bar">
+                    <span>Giocatore:</span>
+                    <div class="bar"><div id="playerHealth" class="health"></div></div>
+                </div>
+                <div class="health-bar">
+                    <span>Nemico:</span>
+                    <div class="bar"><div id="enemyHealth" class="health"></div></div>
+                </div>
+            </div>
+            <div id="combat-choices"></div>
+        </div>
+
+        <div id="dialogue">
+            <div id="message"></div>
+            <div id="choices"></div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
