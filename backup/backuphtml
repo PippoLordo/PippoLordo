@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="it_IT_medieval"> <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://cdn.iconscout.com/icon/premium/png-256-thumb/satanic-church-1849137-1568016.png?f=webp&w=256" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santuario del Pippolordo - Il Richiamo Ancestrale</title>
+      <audio id="backgroundMusic" autoplay loop>
+        <source src="sounds/Gwyn, Lord of Cinder.mp3" type="audio/mpeg">
+    </audio>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Stili CSS - Tema Medievale/Dark Fantasy */
+        :root {
+            --colore-primario-oscuro: #1a1a1a; /* Nero fumo / Carbone molto scuro */
+            --colore-secondario-pietra: #2d2d2d; /* Grigio pietra scuro */
+            --colore-accento-oro-antico: #b08d57; /* Oro antico/bronzo spento */
+            --colore-accento-rosso-sangue: #6a040f; /* Rosso sangue scuro */
+            --colore-testo-pergamena: #e0dac7; /* Crema/Pergamena chiaro */
+            --colore-testo-secondario: #a09a8c; /* Grigio pergamena più scuro */
+            --font-titoli: 'Cinzel', 'MedievalSharp', serif;
+            --font-corpo: 'Lato', 'Georgia', serif;
+            --bordo-ornamentale: 2px solid var(--colore-accento-oro-antico);
+        }
+
+        body {
+            font-family: var(--font-corpo);
+            margin: 0;
+            padding: 0;
+            background-color: var(--colore-primario-oscuro);
+            color: var(--colore-testo-pergamena);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .scudo-araldico {
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+            filter: sepia(0.2) contrast(1.1) brightness(0.9);
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://assets.vg247.com/current//2016/04/dark_souls_3_anor_londo.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--colore-testo-pergamena);
+            padding: 3rem 0;
+            text-align: center;
+            border-bottom: 5px solid var(--colore-accento-rosso-sangue);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+        }
+
+        header .titolo-principale {
+            margin: 0;
+            font-family: var(--font-titoli);
+            font-size: 3.5em;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 8px var(--colore-primario-oscuro), 0 0 10px var(--colore-accento-oro-antico);
+            font-weight: 700;
+        }
+
+        header .sottotitolo-arcano {
+            font-size: 1.4em;
+            margin-top: 0.8rem;
+            font-family: 'MedievalSharp', var(--font-corpo);
+            color: var(--colore-testo-secondario);
+            letter-spacing: 1px;
+        }
+
+        nav.pergamena-dei-sentieri {
+            background-color: var(--colore-secondario-pietra);
+            border-top: 1px solid var(--colore-accento-oro-antico);
+            border-bottom: 1px solid var(--colore-accento-oro-antico);
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        nav.pergamena-dei-sentieri ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav.pergamena-dei-sentieri ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav.pergamena-dei-sentieri ul li a {
+            color: var(--colore-testo-pergamena);
+            text-decoration: none;
+            font-family: var(--font-titoli);
+            font-size: 1.2em;
+            padding: 0.6rem 1.2rem;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        nav.pergamena-dei-sentieri ul li a::before,
+        nav.pergamena-dei-sentieri ul li a::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 100%;
+            background-color: var(--colore-accento-oro-antico);
+            top: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        nav.pergamena-dei-sentieri ul li a::before { left: 0; }
+        nav.pergamena-dei-sentieri ul li a::after { right: 0; }
+
+
+        nav.pergamena-dei-sentieri ul li a:hover, nav.pergamena-dei-sentieri ul li a.attivo {
+            color: var(--colore-accento-oro-antico);
+            text-shadow: 0 0 5px var(--colore-accento-oro-antico);
+        }
+        nav.pergamena-dei-sentieri ul li a:hover::before,
+        nav.pergamena-dei-sentieri ul li a:hover::after,
+        nav.pergamena-dei-sentieri ul li a.attivo::before,
+        nav.pergamena-dei-sentieri ul li a.attivo::after {
+            opacity: 1;
+        }
+
+        .stanza-antica {
+            width: 80%;
+            max-width: 960px;
+            margin: 40px auto;
+            overflow: visible;
+            padding: 30px 40px;
+            background-color: var(--colore-secondario-pietra);
+            border: var(--bordo-ornamentale);
+            border-radius: 3px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(0,0,0,0.4);
+        }
+
+        .capitolo {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px dashed var(--colore-testo-secondario);
+        }
+
+        .capitolo:last-child {
+            border-bottom: none;
+        }
+
+        .capitolo .titolo-del-capitolo {
+            font-family: var(--font-titoli);
+            color: var(--colore-accento-oro-antico);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .capitolo .titolo-del-capitolo::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 2px;
+            background-color: var(--colore-accento-rosso-sangue);
+            margin: 10px auto 0;
+        }
+
+        .capitolo p, .capitolo ul {
+            margin-bottom: 18px;
+            font-size: 1.1em;
+        }
+
+        .capitolo ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .capitolo ul li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+        .capitolo ul li::before {
+            content: '✠';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--colore-accento-oro-antico);
+            font-size: 1.2em;
+        }
+
+        .enfasi-arcana {
+            color: var(--colore-accento-rosso-sangue);
+            font-weight: bold;
+            font-family: 'MedievalSharp', var(--font-corpo);
+        }
+
+        .appello-all-azione, button[type="submit"].appello-all-azione {
+            display: inline-block;
+            background-color: var(--colore-accento-rosso-sangue);
+            color: var(--colore-testo-pergamena);
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 2px;
+            font-family: var(--font-titoli);
+            font-size: 1.2em;
+            font-weight: 700;
+            border: 2px solid var(--colore-accento-oro-antico);
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            text-align: center;
+            margin-top: 15px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .appello-all-azione:hover, button[type="submit"].appello-all-azione:hover {
+            background-color: var(--colore-accento-oro-antico);
+            color: var(--colore-primario-oscuro);
+            border-color: var(--colore-accento-rosso-sangue);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+        }
+
+        .cripta-finale {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            background-color: var(--colore-secondario-pietra);
+            color: var(--colore-testo-secondario);
+            margin-top: 40px;
+            border-top: 3px solid var(--colore-accento-oro-antico);
+            font-size: 0.9em;
+        }
+        .cripta-finale p {
+            margin: 5px 0;
+        }
+
+        .galleria-di-reliquie {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .galleria-di-reliquie img {
+            width: 220px;
+            height: 170px;
+            object-fit: cover;
+            border: 2px solid var(--colore-accento-oro-antico);
+            border-radius: 2px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            filter: grayscale(30%) sepia(20%);
+        }
+        .galleria-di-reliquie img:hover {
+            transform: scale(1.07);
+            box-shadow: 0 0 20px var(--colore-accento-oro-antico);
+            filter: grayscale(0%) sepia(0%);
+        }
+
+        form .campo-del-messaggero {
+            margin-bottom: 20px;
+        }
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-family: var(--font-titoli);
+            color: var(--colore-accento-oro-antico);
+            font-size: 1.1em;
+        }
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: calc(100% - 20px);
+            padding: 12px;
+            border: 1px solid var(--colore-accento-oro-antico);
+            border-radius: 2px;
+            background-color: var(--colore-primario-oscuro);
+            color: var(--colore-testo-pergamena);
+            font-family: var(--font-corpo);
+            font-size: 1em;
+        }
+        form input[type="text"]:focus,
+        form input[type="email"]:focus,
+        form textarea:focus {
+            outline: none;
+            border-color: var(--colore-accento-rosso-sangue);
+            box-shadow: 0 0 8px var(--colore-accento-rosso-sangue);
+        }
+        form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .effige-principale {
+            width:100%;
+            max-width:550px;
+            margin:20px auto;
+            display:block;
+            border: 4px ridge var(--colore-accento-oro-antico);
+            border-radius:3px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.7);
+        }
+        @keyframes fadeInStanza {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .stanza-antica {
+            animation: fadeInStanza 0.8s ease-out forwards;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="titolo-principale">Santuario del Pippolordo</div>
+        <p class="sottotitolo-arcano">Ove l'Antica Saggezza Illumina le Ere Oscure</p>
+    </header>
+
+    <nav class="pergamena-dei-sentieri">
+        <ul>
+            <li><a href="#focolare" class="attivo">Focolare</a></li>
+            <li><a href="#cronache-del-pippolordo">Cronache del Pippolordo</a></li>
+            <li><a href="#sacri-precetti">Sacri Precetti</a></li>
+            <li><a href="#confraternita">La Confraternita</a></li>
+            <li><a href="#adunanze">Adunanze</a></li>
+            <li><a href="#missive">Missive</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="focolare" class="stanza-antica capitolo">
+            <h2 class="titolo-del-capitolo">Salute a Voi, Viandanti dello Spirito!</h2>
+            <p>In questo <span class="enfasi-arcana">Santuario Consacrato</span>, ove le ombre danzano con la luce fioca di antiche verità, noi onoriamo il <span class="enfasi-arcana">Grande Pippolordo</span>. Egli è il custode di segreti dimenticati, il mormorio del vento tra le rovine ancestrali, la scintilla di speranza nel cuore dei disperati.</p>
+            <p>Varcate queste soglie, o cercatori, e che la vostra anima possa trovare ristoro e la vostra mente possa attingere all'antica conoscenza che il Pippolordo elargisce a coloro che osano ascoltare. Qui, ogni pietra narra una storia, ogni eco porta un insegnamento.</p>
+            <img src="https://i.etsystatic.com/19255708/r/il/1eb5e9/3997134746/il_570xN.3997134746_inhb.jpg" alt="Interno di un tempio antico e solenne, illuminato da luce divina, stile Elder Scrolls" class="effige-principale">
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="#cronache-del-pippolordo" class="appello-all-azione">Svelate le Sue Cronache</a>
+            </div>
+        </section>
+
+        <section id="cronache-del-pippolordo" class="stanza-antica capitolo">
+            <h2 class="titolo-del-capitolo">Le Cronache del Divino Pippolordo</h2>
+            <p>Chi è dunque il Pippolordo, il cui nome risuona nei canti dimenticati e nelle leggende sussurrate? Egli è l'entità primigenia, l'<span class="enfasi-arcana">Architetto Silente</span> dei destini velati e il <span class="enfasi-arcana">Soffio Vitale</span> che anima la materia inerte.</p>
+            <h3>Sue Manifestazioni e Domini:</h3>
+            <ul>
+                <li><strong>Il Lamento della Fenice:</strong> Attraverso la distruzione e la rinascita, Egli insegna la ciclicità dell'esistenza.</li>
+                <li><strong>Il Guardiano dei Sentieri Perduti:</strong> Guida le anime smarrite attraverso le prove più ardue, verso una comprensione più profonda.</li>
+                <li><strong>Il Silenzio Eloquente:</strong> Nella quiete e nella contemplazione, la Sua voce si fa più chiara, rivelando arcani misteri.</li>
+                <li><strong>Lo Scudiero degli Oppressi:</strong> Offre forza e coraggio a coloro che lottano contro le ingiustizie e le tenebre.</li>
+            </ul>
+            <p>La Sua essenza è come <span class="enfasi-arcana">fumo e quarzo</span>, intangibile eppure immensamente potente. Alcuni lo hanno scorto come un cavaliere ammantato di stelle, altri come un albero millenario le cui radici affondano nel cuore del mondo, altri ancora come un glifo di potere pulsante nelle profondità della terra.</p>
+            <div class="galleria-di-reliquie">
+                <img src="https://images.everyeye.it/img-singole/articolo-1632.jpg" alt="Cavaliere solitario di fronte a un castello imponente, stile Dark Souls">
+                <img src="https://sm.ign.com/ign_it/screenshot/default/tesoe-01_cxvn.jpg" alt="Antiche rovine elfiche immerse nella natura, stile Elder Scrolls">
+                <img src="https://www.frontierarieti.com/wp-content/uploads/2016/09/15-sainte-chapelle-upper-chapel.jpg" alt="Interno oscuro e imponente di una cattedrale gotica con vetrate colorate">
+            </div>
+        </section>
+
+        <section id="sacri-precetti" class="stanza-antica capitolo">
+            <h2 class="titolo-del-capitolo">I Sacri Precetti dell'Ordine</h2>
+            <p>I dettami del Pippolordo non sono catene, ma <span class="enfasi-arcana">fari nella notte</span>, per guidare i suoi seguaci attraverso i perigli della vita verso un'esistenza di significato e valore:</p>
+            <ul>
+                <li><strong>La Ricerca della Verità Interiore:</strong> Scava nelle profondità della tua anima, poiché lì risiede una scintilla del Pippolordo.</li>
+                <li><strong>L'Onore e la Lealtà:</strong> Sii saldo nella parola data e difendi i deboli. La nobiltà d'animo è la più grande delle armature.</li>
+                <li><strong>La Comprensione del Ciclo:</strong> Accetta la caducità delle cose, poiché dalla cenere sorge nuova vita. Ogni fine è un nuovo inizio.</li>
+                <li><strong>Il Coraggio di Fronte all'Abisso:</strong> Non temere le tenebre, poiché solo attraversandole potrai apprezzare la luce.</li>
+                <li><strong>La Custodia della Conoscenza Antica:</strong> Preserva i saperi degli avi, perché sono le fondamenta del futuro.</li>
+                <li><strong>La Forgia dello Spirito:</strong> Attraverso le prove e le tribolazioni, l'anima si tempra e diviene più forte, come acciaio nella fucina.</li>
+            </ul>
+            <p>Questi non sono editti incisi nella pietra, ma <span class="enfasi-arcana">sussurri del vento ancestrale</span>, che solo un cuore puro e una mente disciplinata possono veramente comprendere e seguire.</p>
+        </section>
+
+        <section id="confraternita" class="stanza-antica capitolo">
+            <h2 class="titolo-del-capitolo">La Confraternita dei Fedeli</h2>
+            <p>Noi, seguaci del Pippolordo, siamo una <span class="enfasi-arcana">confraternita legata da un giuramento</span>, un baluardo contro l'oblio e la disperazione. Ci raduniamo non solo per onorare il Grande Antico, ma per sostenerci l'un l'altro nelle prove della vita.</p>
+            <h3>Le Nostre Adunanze e Imprese:</h3>
+            <ul>
+                <li><strong>Veglie Solenni e Riti Ancestrali:</strong> Per rinnovare il nostro legame con il Pippolordo e attingere alla Sua forza.</li>
+                <li><strong>Capitoli di Studio degli Antichi Tomi:</strong> Per decifrare i simboli e le profezie lasciateci in eredità.</li>
+                <li><strong>Imprese di Soccorso e Giustizia:</strong> Per portare aiuto ai bisognosi e combattere le ombre che minacciano il reame.</li>
+                <li><strong>Pellegrinaggi ai Luoghi Sacri:</strong> Per meditare e connetterci con le energie telluriche care al Pippolordo.</li>
+                <li><strong>Tornei e Giostre d'Onore:</strong> Per celebrare il valore e la fratellanza (in contesti più festivi, se appropriato).</li>
+            </ul>
+            <p>Chiunque senta il richiamo del Pippolordo nel proprio cuore è il benvenuto. Non vi sarà chiesto lignaggio né censo, ma solo la sincerità della vostra cerca e la forza del vostro spirito.</p>
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="#missive" class="appello-all-azione">Inviate la Vostra Missiva</a>
+            </div>
+        </section>
+
+        <section id="adunanze" class="stanza-antica capitolo">
+            <h2 class="titolo-del-capitolo">Prossime Adunanze e Riti Solenni</h2>
+            <p>Prestate orecchio, o fedeli, agli imminenti conclavi e cerimonie in onore del Pippolordo!</p>
+            <ul>
+                <li><strong>Il Rito della Luna Silente:</strong> ["Alla Vigilia del Solstizio d'Inverno"] - Una notte di meditazione profonda e comunione con gli spiriti ancestrali.</li>
+                <li><strong>Convocazione dei Custodi della Fiamma:</strong> ["Al Terzo Plenilunio dalla Caduta delle Foglie"] - Assemblea per discutere antiche profezie e nuove rivelazioni.</li>
+                <li><strong>Il Pellegrinaggio alle Vette Sussurranti:</strong> ["Quando la Stella del Mattino tocca il Picco del Drago"] - Un arduo cammino per rinnovare i voti al Pippolordo.</li>
+            </ul>
+            <p>Per maggiori dettagli sui riti, per annunciare la vostra presenza o per offrire tributi, consultate l'<a href="https://www.youtube.com/watch?v=OaXMG4OzGOo" class="enfasi-arcana">Araldo Maggiore</a> o inviate una pergamena sigillata.</p>
+        </section>
+
+        <section id="missive" class="stanza-antica capitolo">
+            <h2 class="titolo-del-capitolo">Inviate una Missiva al Santuario</h2>
+            <p>Avete quesiti che ardono nella vostra mente? Desiderate offrire i vostri servigi all'Ordine? O forse anelate a condividere una visione concessavi dal Pippolordo?</p>
+            <p>Non esitate. I nostri scribi attendono le vostre pergamene.</p>
+            <ul>
+                <li><strong>Piccione Viaggiatore :</strong> marcellusbig19@gmail.com</a></li>
+                <li><strong>Roccaforte Principale :</strong> La Cripta Nascosta, Valle delle Ombre Silenti </li>
+                <li><strong>Lasciate il Vostro Sigillo :</strong></li>
+            </ul>
+            <form action="https://formsubmit.co/marcellusbig19@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Nuova Missiva dal Santuario del Pippolordo!">
+                
+                <div class="campo-del-messaggero">
+                    <label for="email_del_mittente">Vostra Via per la Risposta (Email):</label>
+                    <input type="email" id="email_del_mittente" name="email" required> </div>
+
+                <div class="campo-del-messaggero">
+                    <label for="nome_del_mittente">Vostro Nome o Titolo:</label>
+                    <input type="text" id="nome_del_mittente" name="nome_del_mittente" required>
+                </div>
+
+                <div class="campo-del-messaggero">
+                    <label for="messaggio_arcano">La Vostra Missiva:</label>
+                    <textarea id="messaggio_arcano" name="messaggio_arcano" rows="6" required></textarea>
+                </div>
+
+                <input type="hidden" name="_captcha" value="false">
+  <a href="https://www.youtube.com/watch?v=OaXMG4OzGOo"> 
+                <button type="submit" class="appello-all-azione">Inviare Pergamena Sigillata</button>
+    </a>
+            </form>
+            <p style="margin-top:25px;">Potreste udire i nostri banditori anche sui <span class="enfasi-arcana">Sentieri Digitali</span>  Cercate il vessillo <span class="enfasi-arcana">@Pippolordo</span> su Instagrammo.</p>
+        </section>
+    </main>
+
+    <footer class="cripta-finale">
+        <p>&copy; Anno Domini <script>document.write(new Date().getFullYear())</script> - Ordine del Sacro Pippolordo. Ogni Verità è Custodita nelle Sue Ombre.</p>
+        <p>Questo reame digitale è un'opera d'ingegno e finzione, creata per sollazzo ed edificazione spirituale.</p>
+    </footer>
+
+    <script>
+        const navLinks = document.querySelectorAll('nav.pergamena-dei-sentieri ul li a');
+        const sections = document.querySelectorAll('.stanza-antica.capitolo');
+
+        function updateActiveLink() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 2 && pageYOffset < sectionTop + sectionHeight / 2) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            if (current === '' && pageYOffset < (sections.length > 0 ? sections[0].offsetTop : 0)) {
+                 if (sections.length > 0) current = sections[0].getAttribute('id');
+            }
+
+
+            navLinks.forEach(link => {
+                link.classList.remove('attivo');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('attivo');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveLink);
+        window.addEventListener('load', updateActiveLink);
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if(targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
