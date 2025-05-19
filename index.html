@@ -2,6 +2,7 @@
 <html lang="it_IT_medieval"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://cdn.iconscout.com/icon/premium/png-256-thumb/satanic-church-1849137-1568016.png?f=webp&w=256" >
     <title>Santuario del Pippolordo - Il Richiamo Ancestrale</title>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -13,8 +14,8 @@
             --colore-accento-rosso-sangue: #6a040f; /* Rosso sangue scuro */
             --colore-testo-pergamena: #e0dac7; /* Crema/Pergamena chiaro */
             --colore-testo-secondario: #a09a8c; /* Grigio pergamena più scuro */
-            --font-titoli: 'Cinzel', 'MedievalSharp', serif; /* MedievalSharp è molto tematico, Cinzel più elegante */
-            --font-corpo: 'Lato', 'Georgia', serif; /* Lato è pulito, Georgia più classico */
+            --font-titoli: 'Cinzel', 'MedievalSharp', serif;
+            --font-corpo: 'Lato', 'Georgia', serif;
             --bordo-ornamentale: 2px solid var(--colore-accento-oro-antico);
         }
 
@@ -23,51 +24,49 @@
             margin: 0;
             padding: 0;
             background-color: var(--colore-primario-oscuro);
-            /* Immagina qui una texture di pietra scura o legno antico per lo sfondo */
-            /* background-image: url('path-to-dark-stone-texture.jpg'); */
             color: var(--colore-testo-pergamena);
             line-height: 1.7;
-            overflow-x: hidden; /* Evita scroll orizzontale indesiderato */
+            overflow-x: hidden;
         }
 
-        .scudo-araldico { /* Per immagini decorative, stemmi */
+        .scudo-araldico {
             width: 100px;
             height: auto;
             margin-bottom: 10px;
-            filter: sepia(0.2) contrast(1.1) brightness(0.9); /* Effetto invecchiato */
+            filter: sepia(0.2) contrast(1.1) brightness(0.9);
         }
 
         header {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('placeholder-castello-oscuro.jpg'); /* Sostituisci con un'immagine a tema */
+            /* IMMAGINE HEADER MODIFICATA */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://c4.wallpaperflare.com/wallpaper/362/276/939/dark-souls-fantasy-art-video-games-architecture-wallpaper-preview.jpg'); /* Esempio: Anor Londo o simile */
             background-size: cover;
             background-position: center;
             color: var(--colore-testo-pergamena);
             padding: 3rem 0;
             text-align: center;
-            border-bottom: 5px solid var(--colore-accento-rosso-sangue); /* Bordo più marcato */
+            border-bottom: 5px solid var(--colore-accento-rosso-sangue);
             box-shadow: 0 4px 15px rgba(0,0,0,0.7);
         }
 
-        header .titolo-principale { /* Cambiato da h1 semplice */
+        header .titolo-principale {
             margin: 0;
             font-family: var(--font-titoli);
-            font-size: 3.5em; /* Più imponente */
+            font-size: 3.5em;
             letter-spacing: 3px;
             text-shadow: 2px 2px 8px var(--colore-primario-oscuro), 0 0 10px var(--colore-accento-oro-antico);
             font-weight: 700;
         }
 
-        header .sottotitolo-arcano { /* Cambiato da p */
+        header .sottotitolo-arcano {
             font-size: 1.4em;
             margin-top: 0.8rem;
-            font-family: 'MedievalSharp', var(--font-corpo); /* Font più evocativo per sottotitolo */
+            font-family: 'MedievalSharp', var(--font-corpo);
             color: var(--colore-testo-secondario);
             letter-spacing: 1px;
         }
 
-        nav.pergamena-dei-sentieri { /* Cambiato nome classe e stile */
+        nav.pergamena-dei-sentieri {
             background-color: var(--colore-secondario-pietra);
-            /* background-image: url('path-to-old-parchment-texture.jpg'); */ /* Texture pergamena */
             border-top: 1px solid var(--colore-accento-oro-antico);
             border-bottom: 1px solid var(--colore-accento-oro-antico);
             padding: 1rem 0;
@@ -82,8 +81,8 @@
         }
 
         nav.pergamena-dei-sentieri ul li {
-            display: inline-block; /* Per migliore spaziatura con ::before */
-            margin: 0 10px; /* Spaziatura tra elementi */
+            display: inline-block;
+            margin: 0 10px;
         }
 
         nav.pergamena-dei-sentieri ul li a {
@@ -92,17 +91,15 @@
             font-family: var(--font-titoli);
             font-size: 1.2em;
             padding: 0.6rem 1.2rem;
-            border-radius: 0; /* Niente bordi arrotondati, più spigoloso */
             transition: color 0.3s ease, text-shadow 0.3s ease;
-            position: relative; /* Per pseudo-elementi */
+            position: relative;
         }
         
-        /* Effetto pergamena srotolata o sigillo */
         nav.pergamena-dei-sentieri ul li a::before,
         nav.pergamena-dei-sentieri ul li a::after {
             content: '';
             position: absolute;
-            width: 8px; /* Larghezza del "sigillo" o bordo laterale */
+            width: 8px;
             height: 100%;
             background-color: var(--colore-accento-oro-antico);
             top: 0;
@@ -124,31 +121,29 @@
             opacity: 1;
         }
 
-
-        .stanza-antica { /* Sostituisce .container */
-            width: 80%; /* Leggermente più stretto per un look più "importante" */
+        .stanza-antica {
+            width: 80%;
             max-width: 960px;
             margin: 40px auto;
-            overflow: visible; /* Permette ombre esterne */
+            overflow: visible;
             padding: 30px 40px;
             background-color: var(--colore-secondario-pietra);
-            /* background-image: url('path-to-dark-parchment-texture.jpg'); */
             border: var(--bordo-ornamentale);
-            border-radius: 3px; /* Angoli leggermente smussati, non tondi */
+            border-radius: 3px;
             box-shadow: 0 0 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(0,0,0,0.4);
         }
 
-        .capitolo { /* Sostituisce .section */
+        .capitolo {
             margin-bottom: 40px;
             padding-bottom: 30px;
-            border-bottom: 1px dashed var(--colore-testo-secondario); /* Separatore più tematico */
+            border-bottom: 1px dashed var(--colore-testo-secondario);
         }
 
         .capitolo:last-child {
             border-bottom: none;
         }
 
-        .capitolo .titolo-del-capitolo { /* Sostituisce h2 */
+        .capitolo .titolo-del-capitolo {
             font-family: var(--font-titoli);
             color: var(--colore-accento-oro-antico);
             font-size: 2.5em;
@@ -158,7 +153,6 @@
             position: relative;
             padding-bottom: 10px;
         }
-        /* Linea ornamentale sotto il titolo */
         .capitolo .titolo-del-capitolo::after {
             content: '';
             display: block;
@@ -168,24 +162,22 @@
             margin: 10px auto 0;
         }
 
-
         .capitolo p, .capitolo ul {
             margin-bottom: 18px;
             font-size: 1.1em;
         }
 
         .capitolo ul {
-            list-style: none; /* Togliamo i pallini standard */
+            list-style: none;
             padding-left: 0;
         }
         .capitolo ul li {
             padding-left: 25px;
-            position: relative; /* Per il glifo personalizzato */
+            position: relative;
             margin-bottom: 8px;
         }
-        /* Glifo personalizzato per le liste - es. una piccola croce o un simbolo */
         .capitolo ul li::before {
-            content: '✠'; /* Esempio di glifo (croce gotica) o usa '✧', '†' */
+            content: '✠';
             position: absolute;
             left: 0;
             top: 0;
@@ -193,20 +185,19 @@
             font-size: 1.2em;
         }
 
-
-        .enfasi-arcana { /* Sostituisce .highlight */
-            color: var(--colore-accento-rosso-sangue); /* Più drammatico */
+        .enfasi-arcana {
+            color: var(--colore-accento-rosso-sangue);
             font-weight: bold;
-            font-family: 'MedievalSharp', var(--font-corpo); /* Font speciale per enfasi */
+            font-family: 'MedievalSharp', var(--font-corpo);
         }
 
-        .appello-all-azione, button[type="submit"].appello-all-azione { /* Sostituisce .cta-button */
+        .appello-all-azione, button[type="submit"].appello-all-azione {
             display: inline-block;
             background-color: var(--colore-accento-rosso-sangue);
             color: var(--colore-testo-pergamena);
             padding: 14px 28px;
             text-decoration: none;
-            border-radius: 2px; /* Meno arrotondato */
+            border-radius: 2px;
             font-family: var(--font-titoli);
             font-size: 1.2em;
             font-weight: 700;
@@ -214,7 +205,7 @@
             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
             text-align: center;
             margin-top: 15px;
-            cursor: pointer; /* Per il bottone del form */
+            cursor: pointer;
             box-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
 
@@ -226,7 +217,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.7);
         }
 
-        .cripta-finale { /* Sostituisce footer */
+        .cripta-finale {
             text-align: center;
             padding: 2.5rem 1rem;
             background-color: var(--colore-secondario-pietra);
@@ -239,8 +230,7 @@
             margin: 5px 0;
         }
 
-        /* Stili per la galleria (adattati) */
-        .galleria-di-reliquie { /* Sostituisce .gallery */
+        .galleria-di-reliquie {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
@@ -248,14 +238,14 @@
             margin-top: 20px;
         }
         .galleria-di-reliquie img {
-            width: 220px;
+            width: 220px; /* O 30% per responsività migliore in alcuni casi */
             height: 170px;
-            object-fit: cover;
+            object-fit: cover; /* Mantiene le proporzioni tagliando se necessario */
             border: 2px solid var(--colore-accento-oro-antico);
             border-radius: 2px;
             box-shadow: 0 0 12px rgba(0,0,0,0.5);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            filter: grayscale(30%) sepia(20%); /* Effetto invecchiato */
+            filter: grayscale(30%) sepia(20%);
         }
         .galleria-di-reliquie img:hover {
             transform: scale(1.07);
@@ -263,8 +253,7 @@
             filter: grayscale(0%) sepia(0%);
         }
 
-        /* Formulario Stile Antico */
-        form .campo-del-messaggero { /* Per ogni gruppo label+input */
+        form .campo-del-messaggero {
             margin-bottom: 20px;
         }
         form label {
@@ -277,7 +266,7 @@
         form input[type="text"],
         form input[type="email"],
         form textarea {
-            width: calc(100% - 20px); /*Considera padding*/
+            width: calc(100% - 20px);
             padding: 12px;
             border: 1px solid var(--colore-accento-oro-antico);
             border-radius: 2px;
@@ -298,17 +287,15 @@
             resize: vertical;
         }
 
-        /* Immagine di benvenuto/centrale */
         .effige-principale {
             width:100%;
-            max-width:550px; /* Leggermente più piccola per dare spazio ai bordi */
+            max-width:550px;
             margin:20px auto;
             display:block;
-            border: 4px ridge var(--colore-accento-oro-antico); /* Bordo più elaborato */
+            border: 4px ridge var(--colore-accento-oro-antico);
             border-radius:3px;
             box-shadow: 0 0 15px rgba(0,0,0,0.7);
         }
-         /* Animazione base per l'entrata delle sezioni */
         @keyframes fadeInStanza {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -316,7 +303,6 @@
         .stanza-antica {
             animation: fadeInStanza 0.8s ease-out forwards;
         }
-
 
     </style>
 </head>
@@ -338,11 +324,12 @@
         </ul>
     </nav>
 
-    <main> <section id="focolare" class="stanza-antica capitolo">
+    <main>
+        <section id="focolare" class="stanza-antica capitolo">
             <h2 class="titolo-del-capitolo">Salute a Voi, Viandanti dello Spirito!</h2>
             <p>In questo <span class="enfasi-arcana">Santuario Consacrato</span>, ove le ombre danzano con la luce fioca di antiche verità, noi onoriamo il <span class="enfasi-arcana">Grande Pippolordo</span>. Egli è il custode di segreti dimenticati, il mormorio del vento tra le rovine ancestrali, la scintilla di speranza nel cuore dei disperati.</p>
             <p>Varcate queste soglie, o cercatori, e che la vostra anima possa trovare ristoro e la vostra mente possa attingere all'antica conoscenza che il Pippolordo elargisce a coloro che osano ascoltare. Qui, ogni pietra narra una storia, ogni eco porta un insegnamento.</p>
-            <img src="placeholder-pippolordo-sacro.jpg" alt="Effige sacra o simbolo arcano di Pippolordo" class="effige-principale">
+            <img src="https://images.uesp.net/thumb/7/7f/SR-place-Temple_of_Kynareth.jpg/800px-SR-place-Temple_of_Kynareth.jpg" alt="Interno di un tempio antico e solenne, illuminato da luce divina, stile Elder Scrolls" class="effige-principale">
             <div style="text-align: center; margin-top: 25px;">
                 <a href="#cronache-del-pippolordo" class="appello-all-azione">Svelate le Sue Cronache</a>
             </div>
@@ -360,9 +347,9 @@
             </ul>
             <p>La Sua essenza è come <span class="enfasi-arcana">fumo e quarzo</span>, intangibile eppure immensamente potente. Alcuni lo hanno scorto come un cavaliere ammantato di stelle, altri come un albero millenario le cui radici affondano nel cuore del mondo, altri ancora come un glifo di potere pulsante nelle profondità della terra.</p>
             <div class="galleria-di-reliquie">
-                <img src="placeholder-reliquia1-medieval.jpg" alt="Reliquia o visione di Pippolordo 1">
-                <img src="placeholder-reliquia2-medieval.jpg" alt="Reliquia o visione di Pippolordo 2">
-                <img src="placeholder-reliquia3-medieval.jpg" alt="Reliquia o visione di Pippolordo 3">
+                <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/374320/ss_6a7a09a357206999530olf79135cc930cc73f063.600x338.jpg?t=1710961207" alt="Cavaliere solitario di fronte a un castello imponente, stile Dark Souls">
+                <img src="https://www.wallpaperup.com/uploads/wallpapers/2014/01/23/235183/big_thumb_e2d89f42a2b0d278ddad10871730a2fe.jpg" alt="Antiche rovine elfiche immerse nella natura, stile Elder Scrolls">
+                <img src="https://i.pinimg.com/originals/a7/27/51/a7275127e4c2f78117a0c436880f9797.jpg" alt="Interno oscuro e imponente di una cattedrale gotica con vetrate colorate">
             </div>
         </section>
 
@@ -442,25 +429,21 @@
     </footer>
 
     <script>
-        // Script per la navigazione "attivo" (leggermente adattato)
         const navLinks = document.querySelectorAll('nav.pergamena-dei-sentieri ul li a');
-        const sections = document.querySelectorAll('.stanza-antica.capitolo'); // Selettore aggiornato
+        const sections = document.querySelectorAll('.stanza-antica.capitolo');
 
         function updateActiveLink() {
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
-                // Considera una sezione attiva se è visibile per almeno metà della sua altezza
                 if (pageYOffset >= sectionTop - sectionHeight / 2 && pageYOffset < sectionTop + sectionHeight / 2) {
                     current = section.getAttribute('id');
                 }
             });
 
-             // Se nessuna sezione è "attiva" (es. in cima o in fondo alla pagina fuori dalle sezioni)
-            // Potremmo voler mantenere attivo il primo link se siamo in cima
-            if (current === '' && pageYOffset < sections[0].offsetTop) {
-                current = sections[0].getAttribute('id');
+            if (current === '' && pageYOffset < (sections.length > 0 ? sections[0].offsetTop : 0)) {
+                 if (sections.length > 0) current = sections[0].getAttribute('id');
             }
 
 
@@ -473,9 +456,8 @@
         }
         
         window.addEventListener('scroll', updateActiveLink);
-        window.addEventListener('load', updateActiveLink); // Aggiorna anche al caricamento
+        window.addEventListener('load', updateActiveLink);
 
-        // Smooth scroll per i link interni
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
