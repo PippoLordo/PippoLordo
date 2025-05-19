@@ -1,54 +1,319 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <a href="https://3joe.netlify.app/#">Bacheca 3JI</a>
     <meta charset="UTF-8">
-    <title>Traditori della Patria - Edizione Completa</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiesa del Pippolordo - La Via della Luce Pippolordiana</title>
+    <style>
+        /* Stili CSS di base per una migliore presentazione iniziale */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Sfondo leggermente grigio */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #3a5a40; /* Verde bosco scuro per un tocco solenne */
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+            border-bottom: #a3b18a 5px solid; /* Bordo verde più chiaro */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 0.5rem;
+        }
+
+        nav {
+            background: #588157; /* Verde medio */
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 25px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #a3b18a; /* Verde più chiaro al passaggio del mouse/attivo */
+            color: #3a5a40;
+        }
+
+        .container {
+            width: 85%;
+            margin: auto;
+            overflow: hidden;
+            padding: 25px;
+            background: #fff; /* Sfondo bianco per il contenuto principale */
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dotted #ccc; /* Separatore leggero tra le sezioni */
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section h2 {
+            color: #3a5a40; /* Verde scuro per i titoli delle sezioni */
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .section p, .section ul {
+            margin-bottom: 15px;
+        }
+
+        .section ul {
+            list-style-position: inside;
+            padding-left: 20px;
+        }
+
+        .highlight {
+            color: #d4a373; /* Un colore ocra/oro per evidenziare */
+            font-weight: bold;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #d4a373; /* Ocra/Oro per Call to Action */
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .cta-button:hover {
+            background: #bc8a5f; /* Ocra/Oro più scuro al passaggio del mouse */
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #333;
+            color: #fff;
+            margin-top: 30px;
+        }
+
+        /* Idee per una "fantastica user interface experience" (da espandere con JS, animazioni, ecc.) */
+        /* Esempio: Immagine di sfondo "celestiale" o pattern sottile */
+        /* body { background-image: url('path-to-your-celestial-image.jpg'); background-size: cover; } */
+
+        /* Esempio: Transizioni fluide */
+        .section { transition: opacity 0.5s ease-in-out; }
+
+        /* Stili per la galleria (molto basilare) */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .gallery img {
+            width: 200px; /* o una percentuale per responsività */
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+    </style>
 </head>
 <body>
-    <audio id="backgroundMusic" loop>
-        <source src="sounds/background.mp3" type="audio/mpeg">
-    </audio>
 
-    <div id="game-container">
-        <div id="header">
-            <h1>⚔️ TRADITORI DELLA PATRIA ⚔️</h1>
-            <div id="stats">
-                <span>💰 <span id="gold">50</span></span>
-                <span>✨ <span id="magic">1</span></span>
-                <span>⭐ <span id="reputation">0</span></span>
-                <span>⚖️ <span id="alignment">neutrale</span></span>
-            </div>
-        </div>
+    <header>
+        <h1>Chiesa del Pippolordo</h1>
+        <p>Illuminati dalla Saggezza Infinita del Divino Pippolordo</p>
+    </header>
 
-        <div id="scene-container">
-            <img id="background" class="background">
-            <div id="characters"></div>
-        </div>
+    <nav>
+        <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#chi-e-pippolordo">Chi è Pippolordo?</a></li>
+            <li><a href="#credi">I Nostri Credi</a></li>
+            <li><a href="#comunita">Comunità</a></li>
+            <li><a href="#eventi">Eventi</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+        </ul>
+    </nav>
 
-        <div id="combat-ui" class="hidden">
-            <div id="combat-message"></div>
-            <div id="combat-player-stats"></div>
-            <div id="health-bars">
-                <div class="health-bar">
-                    <span>Giocatore:</span>
-                    <div class="bar"><div id="playerHealth" class="health"></div></div>
-                </div>
-                <div class="health-bar">
-                    <span>Nemico:</span>
-                    <div class="bar"><div id="enemyHealth" class="health"></div></div>
-                </div>
-            </div>
-            <div id="combat-choices"></div>
-        </div>
-
-        <div id="dialogue">
-            <div id="message"></div>
-            <div id="choices"></div>
+    <div id="home" class="container section">
+        <h2>Benvenuti nella Luce di Pippolordo!</h2>
+        <p>Qui, nella <span class="highlight">Chiesa del Pippolordo</span>, celebriamo la gioia, la saggezza e l'infinita benevolenza del nostro faro spirituale, il <span class="highlight">Grande Pippolordo</span>. Questo è un luogo di accoglienza, riflessione e crescita spirituale per tutti coloro che cercano la verità e la connessione.</p>
+        <p>Esplora il nostro sito per scoprire di più sulla sua magnifica esistenza, i suoi insegnamenti illuminanti e come puoi unirti alla nostra vibrante comunità di fedeli.</p>
+        <img src="placeholder-pippolordo-welcome.jpg" alt="Simbolo accogliente di Pippolordo" style="width:100%; max-width:600px; margin:15px auto; display:block; border-radius:8px;">
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="#chi-e-pippolordo" class="cta-button">Scopri Pippolordo</a>
         </div>
     </div>
 
-    <script src="game.js"></script>
+    <div id="chi-e-pippolordo" class="container section">
+        <h2>Chi è il Divino Pippolordo?</h2>
+        <p>Pippolordo è l'entità suprema della <span class="highlight">gioia cosmica</span> e della <span class="highlight">saggezza giocosa</span>. Non è un dio di dogmi rigidi, ma una guida spirituale che ci insegna a trovare la meraviglia nel quotidiano e la forza nell'unità.</p>
+        <h3>Le Sue Manifestazioni:</h3>
+        <ul>
+            <li><strong>La Risata Primordiale:</strong> Si dice che l'universo sia nato da una sua incontenibile e gioiosa risata.</li>
+            <li><strong>Il Tessitore di Sogni Lucidi:</strong> Ispira la creatività e le intuizioni attraverso sogni vividi e pieni di significato.</li>
+            <li><strong>Il Guardiano delle Piccole Cose:</strong> Ci insegna ad apprezzare i dettagli minuti della vita, fonti inesauribili di felicità.</li>
+            <li><strong>L'Eco della Gentilezza:</strong> Ogni atto di bontà è una sua eco nel mondo.</li>
+        </ul>
+        <p>La sua forma è spesso descritta come <span class="highlight">mutevole e indescrivibile</span>, apparendo a ciascuno nel modo più confortante e ispiratore possibile. Alcuni lo vedono come una luce danzante, altri come una melodia ancestrale, altri ancora come un soffio di vento profumato.</p>
+        <div class="gallery">
+            <img src="placeholder-manifestation1.jpg" alt="Manifestazione artistica di Pippolordo 1">
+            <img src="placeholder-manifestation2.jpg" alt="Manifestazione artistica di Pippolordo 2">
+            <img src="placeholder-manifestation3.jpg" alt="Manifestazione artistica di Pippolordo 3">
+        </div>
+    </div>
+
+    <div id="credi" class="container section">
+        <h2>I Nostri Credi Fondamentali</h2>
+        <p>La dottrina Pippolordiana si basa su principi semplici ma profondi, volti a migliorare la vita individuale e collettiva:</p>
+        <ul>
+            <li><strong>La Ricerca della Gioia Autentica:</strong> La felicità non è un lusso, ma un diritto divino e una responsabilità.</li>
+            <li><strong>L'Abbraccio della Curiosità:</strong> Imparare e meravigliarsi sono atti sacri. Ogni domanda è un passo verso Pippolordo.</li>
+            <li><strong>La Forza della Comunità:</strong> Siamo tutti interconnessi. Aiutarsi a vicenda è servire Pippolordo.</li>
+            <li><strong>Il Rispetto per Ogni Esistenza:</strong> Ogni creatura, ogni pianta, ogni stella è una scintilla del divino Pippolordo.</li>
+            <li><strong>La Celebrazione della Creatività:</strong> L'arte, la musica, la narrazione sono preghiere che rallegrano Pippolordo.</li>
+            <li><strong>La Pratica della Gentilezza Attiva:</strong> Piccoli gesti di bontà possono trasformare il mondo.</li>
+        </ul>
+        <p>Non ci sono comandamenti restrittivi, ma <span class="highlight">inviti amorevoli</span> a vivere una vita piena, consapevole e gioiosa, in armonia con sé stessi, con gli altri e con l'universo che Pippolordo ha intessuto.</p>
+    </div>
+
+    <div id="comunita" class="container section">
+        <h2>La Nostra Vibrante Comunità</h2>
+        <p>La Chiesa del Pippolordo è più di un insieme di credenze; è una <span class="highlight">famiglia spirituale</span>. Ci riuniamo per celebrare, condividere, supportarci e crescere insieme.</p>
+        <h3>Cosa Facciamo Insieme:</h3>
+        <ul>
+            <li><strong>Riunioni Settimanali di Celebrazione Gioiosa:</strong> Canti, meditazioni gioiose, condivisione di esperienze positive.</li>
+            <li><strong>Gruppi di Studio sulla Saggezza Pippolordiana:</strong> Discussioni aperte e rispettose sugli insegnamenti e le interpretazioni.</li>
+            <li><strong>Attività di Volontariato Comunitario:</strong> Mettiamo in pratica la gentilezza attiva aiutando chi ha bisogno.</li>
+            <li><strong>Ritiri Spirituali nella Natura:</strong> Per connetterci con Pippolordo attraverso la bellezza del creato.</li>
+            <li><strong>Feste Stagionali Pippolordiane:</strong> Celebrazioni uniche dedicate ai cicli della vita e dell'universo.</li>
+        </ul>
+        <p>Sei invitato a unirti a noi! Non importa il tuo background, le tue domande o i tuoi dubbi, troverai sempre una porta aperta e un sorriso accogliente.</p>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="#contatti" class="cta-button">Unisciti a Noi!</a>
+        </div>
+    </div>
+
+    <div id="eventi" class="container section">
+        <h2>Prossimi Eventi Pippolordiani</h2>
+        <p>Non perderti i nostri prossimi incontri e celebrazioni!</p>
+        <ul>
+            <li><strong>Festa della Risata Cosmica:</strong> [Data Prossima] - Una giornata dedicata alla gioia pura, con giochi, musica e condivisione.</li>
+            <li><strong>Seminario: "Trovare Pippolordo nelle Piccole Cose":</strong> [Data Prossima] - Un workshop interattivo per acuire la nostra percezione della meraviglia quotidiana.</li>
+            <li><strong>Notte di Meditazione sotto le Stelle:</strong> [Data Prossima] - Connettiamoci con l'infinito e la guida di Pippolordo.</li>
+        </ul>
+        <p>Per maggiori dettagli e per registrarti, visita la nostra pagina <a href="link-alla-pagina-eventi-dettagliata.html" class="highlight">Eventi Completa</a> o contattaci.</p>
+        </div>
+
+    <div id="contatti" class="container section">
+        <h2>Mettiti in Contatto</h2>
+        <p>Hai domande? Vuoi saperne di più? Desideri unirti alla nostra comunità?</p>
+        <p>Saremmo felici di sentirti!</p>
+        <ul>
+            <li><strong>Email:</strong> info@chiesapippolordo.org (Esempio)</li>
+            <li><strong>Luogo di Incontro Principale:</strong> Via della Gioia Eterna, 123 - Città della Luce (Luogo fittizio)</li>
+            <li><strong>Modulo di Contatto Online:</strong></li>
+        </ul>
+        <form action="#" method="post">
+             <div style="margin-bottom: 10px;">
+                <label for="name" style="display:block; margin-bottom:5px;">Nome:</label>
+                <input type="text" id="name" name="name" required style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="email" style="display:block; margin-bottom:5px;">Email:</label>
+                <input type="email" id="email" name="email" required style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="message" style="display:block; margin-bottom:5px;">Messaggio:</label>
+                <textarea id="message" name="message" rows="5" required style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;"></textarea>
+            </div>
+            <button type="submit" class="cta-button" style="border:none; cursor:pointer;">Invia Messaggio</button>
+        </form>
+        <p style="margin-top:20px;">Puoi trovarci anche sui social (immaginari): <span class="highlight">@PippolordoOfficial</span> su Piptok e Instagrin.</p>
+    </div>
+
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Chiesa del Pippolordo. Tutti i diritti riservati alla Gioia Cosmica.</p>
+        <p>Questo sito è un'opera di finzione a scopo illustrativo.</p>
+    </footer>
+
+    <script>
+        // Script per la navigazione "active" (molto basilare)
+        const navLinks = document.querySelectorAll('nav ul li a');
+        const sections = document.querySelectorAll('.container.section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) { // 60 è un offset per l'altezza della nav
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll per i link interni (opzionale, ma migliora UX)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>
