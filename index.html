@@ -4,9 +4,9 @@
     <link rel="icon" href="https://cdn.iconscout.com/icon/premium/png-256-thumb/satanic-church-1849137-1568016.png?f=webp&w=256" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Santuario del Pippolordo - Il Richiamo Ancestrale</title>
-      <audio id="backgroundMusic" autoplay loop>
-        <source src="sounds/Gwyn, Lord of Cinder.mp3" type="audio/mpeg">
-    </audio>
+    <audio id="backgroundMusic" autoplay loop>
+  <source src="sounds/Gwyn, Lord of Cinder.mp3" type="audio/mpeg">
+</audio>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Stili CSS - Tema Medievale/Dark Fantasy */
@@ -479,6 +479,16 @@
             });
         });
     </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const audio = document.getElementById("backgroundMusic");
+    function playAudio() {
+      audio.play().catch(err => console.log("Autoplay bloccato:", err));
+      document.removeEventListener("click", playAudio);
+    }
+    document.addEventListener("click", playAudio);
+  });
+</script>
 
 </body>
 </html>
