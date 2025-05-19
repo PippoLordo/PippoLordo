@@ -305,11 +305,31 @@
         .stanza-antica {
             animation: fadeInStanza 0.8s ease-out forwards;
         }
-
+ #toggleMusicBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--colore-accento-rosso-sangue);
+            color: var(--colore-testo-pergamena);
+            border: 2px solid var(--colore-accento-oro-antico);
+            padding: 10px 16px;
+            font-family: var(--font-titoli);
+            font-size: 1em;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        #toggleMusicBtn:hover {
+            background-color: var(--colore-accento-oro-antico);
+            color: var(--colore-primario-oscuro);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
-
+<button id="toggleMusicBtn">Accendi Musica</button>
     <header>
         <div class="titolo-principale">Santuario del Pippolordo</div>
         <p class="sottotitolo-arcano">Ove l'Antica Saggezza Illumina le Ere Oscure</p>
@@ -438,57 +458,50 @@
     </footer>
 
     <script>
+        const audio = document.getElementById("backgroundMusic");
+        const toggleBtn = document.getElementById("toggleMusicBtn");
+        let isPlaying = false;
+
+        toggleBtn.addEventListener("click", () => {
+            if (!isPlaying) {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    toggleBtn.textContent = "Spegni Musica";
+                }).catch(err => console.log("Autoplay bloccato:", err));
+            } else {
+                audio.pause();
+                isPlaying = false;
+                toggleBtn.textContent = "Accendi Musica";
+            }
+        });
+
+        // Mantieni inalterati i tuoi script di navigazione e scroll
         const navLinks = document.querySelectorAll('nav.pergamena-dei-sentieri ul li a');
         const sections = document.querySelectorAll('.stanza-antica.capitolo');
-
         function updateActiveLink() {
             let current = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - sectionHeight / 2 && pageYOffset < sectionTop + sectionHeight / 2) {
-                    current = section.getAttribute('id');
+                const top = section.offsetTop, height = section.clientHeight;
+                if (pageYOffset >= top - height/2 && pageYOffset < top + height/2) {
+                    current = section.id;
                 }
             });
-
-            if (current === '' && pageYOffset < (sections.length > 0 ? sections[0].offsetTop : 0)) {
-                 if (sections.length > 0) current = sections[0].getAttribute('id');
+            if (!current && pageYOffset < (sections[0]?.offsetTop || 0)) {
+                current = sections[0]?.id || '';
             }
-
-
             navLinks.forEach(link => {
-                link.classList.remove('attivo');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('attivo');
-                }
+                link.classList.toggle('attivo', link.getAttribute('href').slice(1) === current);
             });
         }
-        
         window.addEventListener('scroll', updateActiveLink);
         window.addEventListener('load', updateActiveLink);
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
                 e.preventDefault();
-                const targetElement = document.querySelector(this.getAttribute('href'));
-                if(targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+                document.querySelector(a.getAttribute('href'))
+                        .scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const audio = document.getElementById("backgroundMusic");
-    function playAudio() {
-      audio.play().catch(err => console.log("Autoplay bloccato:", err));
-      document.removeEventListener("click", playAudio);
-    }
-    document.addEventListener("click", playAudio);
-  });
-</script>
-
 </body>
 </html>
