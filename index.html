@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="it_IT_medieval"> <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://cdn.iconscout.com/icon/premium/png-256-thumb/satanic-church-1849137-1568016.png?f=webp&w=256" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Santuario del Pippolordo - Il Richiamo Ancestrale</title>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -37,8 +37,7 @@
         }
 
         header {
-            /* IMMAGINE HEADER MODIFICATA */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://c4.wallpaperflare.com/wallpaper/362/276/939/dark-souls-fantasy-art-video-games-architecture-wallpaper-preview.jpg'); /* Esempio: Anor Londo o simile */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://c4.wallpaperflare.com/wallpaper/362/276/939/dark-souls-fantasy-art-video-games-architecture-wallpaper-preview.jpg');
             background-size: cover;
             background-position: center;
             color: var(--colore-testo-pergamena);
@@ -238,9 +237,9 @@
             margin-top: 20px;
         }
         .galleria-di-reliquie img {
-            width: 220px; /* O 30% per responsività migliore in alcuni casi */
+            width: 220px;
             height: 170px;
-            object-fit: cover; /* Mantiene le proporzioni tagliando se necessario */
+            object-fit: cover;
             border: 2px solid var(--colore-accento-oro-antico);
             border-radius: 2px;
             box-shadow: 0 0 12px rgba(0,0,0,0.5);
@@ -347,7 +346,7 @@
             </ul>
             <p>La Sua essenza è come <span class="enfasi-arcana">fumo e quarzo</span>, intangibile eppure immensamente potente. Alcuni lo hanno scorto come un cavaliere ammantato di stelle, altri come un albero millenario le cui radici affondano nel cuore del mondo, altri ancora come un glifo di potere pulsante nelle profondità della terra.</p>
             <div class="galleria-di-reliquie">
-                <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/374320/ss_6a7a09a357206999530olf79135cc930cc73f063.600x338.jpg?t=1710961207" alt="Cavaliere solitario di fronte a un castello imponente, stile Dark Souls">
+                <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/374320/ss_6a7a09a35720699953001f79135cc930cc73f063.600x338.jpg?t=1710961207" alt="Cavaliere solitario di fronte a un castello imponente, stile Dark Souls">
                 <img src="https://www.wallpaperup.com/uploads/wallpapers/2014/01/23/235183/big_thumb_e2d89f42a2b0d278ddad10871730a2fe.jpg" alt="Antiche rovine elfiche immerse nella natura, stile Elder Scrolls">
                 <img src="https://i.pinimg.com/originals/a7/27/51/a7275127e4c2f78117a0c436880f9797.jpg" alt="Interno oscuro e imponente di una cattedrale gotica con vetrate colorate">
             </div>
@@ -400,23 +399,29 @@
             <p>Avete quesiti che ardono nella vostra mente? Desiderate offrire i vostri servigi all'Ordine? O forse anelate a condividere una visione concessavi dal Pippolordo?</p>
             <p>Non esitate. I nostri scribi attendono le vostre pergamene.</p>
             <ul>
-                <li><strong>Piccione Viaggiatore (Metaforico per Email):</strong> <a href="mailto:scriba@santuariopippolordo.ehh" class="enfasi-arcana">scriba@santuariopippolordo.ehh</a> (Dominio fittizio)</li>
+                <li><strong>Piccione Viaggiatore (Metaforico per Email):</strong> <a href="mailto:marcellusbig19@gmail.com" class="enfasi-arcana">marcellusbig19@gmail.com</a></li>
                 <li><strong>Roccaforte Principale (Luogo):</strong> La Cripta Nascosta, Valle delle Ombre Silenti (Luogo fittizio)</li>
                 <li><strong>Lasciate il Vostro Sigillo (Modulo di Contatto):</strong></li>
             </ul>
-            <form action="#" method="post">
+            <form action="https://formsubmit.co/marcellusbig19@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Nuova Missiva dal Santuario del Pippolordo!">
+                
+                <div class="campo-del-messaggero">
+                    <label for="email_del_mittente">Vostra Via per la Risposta (Email):</label>
+                    <input type="email" id="email_del_mittente" name="email" required> </div>
+
                 <div class="campo-del-messaggero">
                     <label for="nome_del_mittente">Vostro Nome o Titolo:</label>
                     <input type="text" id="nome_del_mittente" name="nome_del_mittente" required>
                 </div>
-                <div class="campo-del-messaggero">
-                    <label for="email_del_mittente">Vostra Via per la Risposta (Email):</label>
-                    <input type="email" id="email_del_mittente" name="email_del_mittente" required>
-                </div>
+
                 <div class="campo-del-messaggero">
                     <label for="messaggio_arcano">La Vostra Missiva:</label>
                     <textarea id="messaggio_arcano" name="messaggio_arcano" rows="6" required></textarea>
                 </div>
+
+                <input type="hidden" name="_captcha" value="false">
+
                 <button type="submit" class="appello-all-azione">Inviare Pergamena Sigillata</button>
             </form>
             <p style="margin-top:25px;">Potreste udire i nostri banditori anche sui <span class="enfasi-arcana">Sentieri Digitali</span> (social media fittizi): Cercate il vessillo <span class="enfasi-arcana">@PippolordoCustode</span> su TomoDeiVolti (FaceBook) e PergameneCinguettanti (Twitter).</p>
