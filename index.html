@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="it_IT_medieval"> <head>
+<html lang="it_IT_medieval">
+<head>
     <meta charset="UTF-8">
-    <link rel="icon" href="https://cdn.iconscout.com/icon/premium/png-256-thumb/satanic-church-1849137-1568016.png?f=webp&w=256" >
+    <link rel="icon" href="https://cdn.iconscout.com/icon/premium/png-256-thumb/satanic-church-1849137-1568016.png?f=webp&w=256">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Santuario del Pippolordo - Il Richiamo Ancestrale</title>
     <audio id="backgroundMusic" autoplay loop>
-  <source src="sounds/Gwyn, Lord of Cinder.mp3" type="audio/mpeg">
-</audio>
+        <source src="sounds/Gwyn, Lord of Cinder.mp3" type="audio/mpeg">
+    </audio>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Stili CSS - Tema Medievale/Dark Fantasy */
@@ -74,6 +75,9 @@
             padding: 1rem 0;
             text-align: center;
             box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+            position: sticky; /* Aggiunto per mantenere la navbar visibile */
+            top: 0; /* Aggiunto per mantenere la navbar in alto */
+            z-index: 100; /* Aggiunto per assicurare che sia sopra altri elementi */
         }
 
         nav.pergamena-dei-sentieri ul {
@@ -110,7 +114,6 @@
         }
         nav.pergamena-dei-sentieri ul li a::before { left: 0; }
         nav.pergamena-dei-sentieri ul li a::after { right: 0; }
-
 
         nav.pergamena-dei-sentieri ul li a:hover, nav.pergamena-dei-sentieri ul li a.attivo {
             color: var(--colore-accento-oro-antico);
@@ -255,6 +258,41 @@
             filter: grayscale(0%) sepia(0%);
         }
 
+        /* Stile per la galleria Effigi Sacre */
+        .galleria-effigi {
+            display: flex;
+            flex-direction: column; /* Immagini una sotto l'altra */
+            align-items: center; /* Centra le immagini */
+            gap: 25px; /* Spazio tra le immagini e le didascalie */
+            margin-top: 20px;
+        }
+        .galleria-effigi .effige-container {
+            text-align: center; /* Centra la didascalia sotto l'immagine */
+        }
+        .galleria-effigi img {
+            width: 100%; /* Larghezza massima del contenitore */
+            max-width: 450px; /* Larghezza massima immagine */
+            height: auto; /* Mantiene le proporzioni */
+            object-fit: cover;
+            border: 3px solid var(--colore-accento-oro-antico);
+            border-radius: 3px;
+            box-shadow: 0 0 18px rgba(0,0,0,0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            filter: sepia(0.1) contrast(1.05) brightness(0.95);
+        }
+        .galleria-effigi img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px var(--colore-accento-oro-antico);
+            filter: sepia(0%) contrast(1) brightness(1);
+        }
+        .galleria-effigi figcaption {
+            margin-top: 10px;
+            font-family: var(--font-titoli);
+            color: var(--colore-testo-pergamena);
+            font-size: 1.2em;
+        }
+
+
         form .campo-del-messaggero {
             margin-bottom: 20px;
         }
@@ -305,7 +343,7 @@
         .stanza-antica {
             animation: fadeInStanza 0.8s ease-out forwards;
         }
- #toggleMusicBtn {
+        #toggleMusicBtn {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -342,8 +380,8 @@
             <li><a href="#sacri-precetti">Sacri Precetti</a></li>
             <li><a href="#confraternita">La Confraternita</a></li>
             <li><a href="#adunanze">Adunanze</a></li>
-            <li><a href="#missive">Missive</a></li>
-        </ul>
+            <li><a href="#effigi-sacre">Effigi Sacre</a></li> <li><a href="#missive">Missive</a></li>
+            <li><a href="https://www.google.it/maps/place/Santuario+del+Pippolordo/@38.1857169,15.5565977,18.42z/data=!4m6!3m5!1s0x13144f11abe228f1:0x639bf9c77f0fb86b!8m2!3d38.1856763!4d15.5559491!16s%2Fg%2F11xg4v5jv4?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D" target="_blank">Locazione</a></li> </ul>
     </nav>
 
     <main>
@@ -417,12 +455,29 @@
             <p>Per maggiori dettagli sui riti, per annunciare la vostra presenza o per offrire tributi, consultate l'<a href="https://www.youtube.com/watch?v=OaXMG4OzGOo" class="enfasi-arcana">Araldo Maggiore</a> o inviate una pergamena sigillata.</p>
         </section>
 
+        <section id="effigi-sacre" class="stanza-antica capitolo">
+            <h2 class="titolo-del-capitolo">Effigi Sacre: Il Divino Pippolordo e i Suoi Discepoli</h2>
+            <p>Contemplate le sembianze di Colui che guida e di coloro che seguono il Suo imperituro cammino. Che queste immagini rinvigoriscano la vostra fede.</p>
+            
+            <div class="galleria-effigi">
+                <figure class="effige-container">
+                    <img src="photos/Burzum Zeppeli.jpeg" alt="Il Divino Pippolordo in tutta la sua gloria">
+                    <figcaption>Il Divino Pippolordo</figcaption>
+                </figure>
+                
+                <figure class="effige-container">
+                    <img src="https://preview.redd.it/h1uqhqnq6fmd1.jpeg?auto=webp&s=9bb25bafc1f07a1673362fb57bf6d098ff790611" alt="I fedeli Discepoli del Pippolordo">
+                    <figcaption>I Suoi Fedeli Discepoli</figcaption>
+                </figure>
+            </div>
+             <p style="text-align: center; margin-top: 20px;">Meditate su queste visioni e lasciate che la loro essenza pervada il vostro spirito.</p>
+        </section>
         <section id="missive" class="stanza-antica capitolo">
             <h2 class="titolo-del-capitolo">Inviate una Missiva al Santuario</h2>
             <p>Avete quesiti che ardono nella vostra mente? Desiderate offrire i vostri servigi all'Ordine? O forse anelate a condividere una visione concessavi dal Pippolordo?</p>
             <p>Non esitate. I nostri scribi attendono le vostre pergamene.</p>
             <ul>
-                <li><strong>Piccione Viaggiatore :</strong> marcellusbig19@gmail.com</a></li>
+                <li><strong>Piccione Viaggiatore :</strong> marcellusbig19@gmail.com</li>
                 <li><strong>Roccaforte Principale :</strong> La Cripta Nascosta, Valle delle Ombre Silenti </li>
                 <li><strong>Lasciate il Vostro Sigillo :</strong></li>
             </ul>
@@ -431,7 +486,8 @@
                 
                 <div class="campo-del-messaggero">
                     <label for="email_del_mittente">Vostra Via per la Risposta (Email):</label>
-                    <input type="email" id="email_del_mittente" name="email" required> </div>
+                    <input type="email" id="email_del_mittente" name="email" required>
+                </div>
 
                 <div class="campo-del-messaggero">
                     <label for="nome_del_mittente">Vostro Nome o Titolo:</label>
@@ -444,16 +500,14 @@
                 </div>
 
                 <input type="hidden" name="_captcha" value="false">
-  <a href="https://www.youtube.com/watch?v=OaXMG4OzGOo"> 
                 <button type="submit" class="appello-all-azione">Inviare Pergamena Sigillata</button>
-    </a>
             </form>
-            <p style="margin-top:25px;">Potreste udire i nostri banditori anche sui <span class="enfasi-arcana">Sentieri Digitali</span>  Cercate il vessillo <span class="enfasi-arcana">@Pippolordo</span> su Instagrammo.</p>
+            <p style="margin-top:25px;">Potreste udire i nostri banditori anche sui <span class="enfasi-arcana">Sentieri Digitali</span>. Cercate il vessillo <span class="enfasi-arcana">@Pippolordo</span> su Instagrammo.</p>
         </section>
     </main>
 
     <footer class="cripta-finale">
-        <p>&copy; Anno <script>document.write(new Date().getFullYear())</script> - Ordine del Sacro Pippolordo. Ogni Verità è Custodita nelle Sue Ombre.</p>
+        <p>© Anno <script>document.write(new Date().getFullYear())</script> - Ordine del Sacro Pippolordo. Ogni Verità è Custodita nelle Sue Ombre.</p>
         <p>Questo reame è un'opera d'ingegno creata per sollazzo ed edificazione spirituale.</p>
     </footer>
 
@@ -462,12 +516,41 @@
         const toggleBtn = document.getElementById("toggleMusicBtn");
         let isPlaying = false;
 
+        // Tentativo di avviare la musica automaticamente, gestendo il blocco del browser
+        function tryAutoplay() {
+            audio.play().then(() => {
+                isPlaying = true;
+                toggleBtn.textContent = "Spegni Musica";
+            }).catch(err => {
+                console.log("Autoplay bloccato dal browser. L'utente deve interagire per avviare la musica.", err);
+                isPlaying = false;
+                toggleBtn.textContent = "Accendi Musica";
+                // Potresti mostrare un messaggio all'utente per cliccare il bottone se l'autoplay non funziona.
+            });
+        }
+
+        // Chiamata iniziale per tentare l'autoplay (potrebbe non funzionare in tutti i browser senza interazione)
+        // Rimuovo la chiamata diretta a tryAutoplay() qui per rispettare le policy più recenti dei browser
+        // Lascio che sia il bottone a gestire il primo play se l'autoplay dell'elemento <audio> fallisce.
+        // L'attributo 'autoplay' sull'elemento audio tenterà comunque l'avvio.
+        // Lo script si assicurerà che lo stato del bottone sia corretto se l'autoplay ha successo o meno.
+
+        // Verifica se l'audio è in pausa all'avvio (potrebbe essere il caso se l'autoplay non è partito)
+        if (audio.paused) {
+            isPlaying = false;
+            toggleBtn.textContent = "Accendi Musica";
+        } else {
+            isPlaying = true;
+            toggleBtn.textContent = "Spegni Musica";
+        }
+
+
         toggleBtn.addEventListener("click", () => {
             if (!isPlaying) {
                 audio.play().then(() => {
                     isPlaying = true;
                     toggleBtn.textContent = "Spegni Musica";
-                }).catch(err => console.log("Autoplay bloccato:", err));
+                }).catch(err => console.log("Errore durante il play:", err));
             } else {
                 audio.pause();
                 isPlaying = false;
@@ -475,31 +558,77 @@
             }
         });
 
-        // Mantieni inalterati i tuoi script di navigazione e scroll
         const navLinks = document.querySelectorAll('nav.pergamena-dei-sentieri ul li a');
-        const sections = document.querySelectorAll('.stanza-antica.capitolo');
+        const sections = document.querySelectorAll('main section[id]'); // Seleziona solo le sezioni con ID nel main
+
         function updateActiveLink() {
             let current = '';
+            let minDistance = Infinity;
+            let closestSectionId = sections[0] ? sections[0].id : ''; // Fallback al primo ID
+
             sections.forEach(section => {
-                const top = section.offsetTop, height = section.clientHeight;
-                if (pageYOffset >= top - height/2 && pageYOffset < top + height/2) {
-                    current = section.id;
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Punto centrale della viewport
+                const viewportCenter = scrollPosition + (window.innerHeight / 2);
+                // Punto centrale della sezione
+                const sectionCenter = sectionTop + (sectionHeight / 2);
+                
+                const distance = Math.abs(viewportCenter - sectionCenter);
+
+                // Considera una sezione come "corrente" se la sua parte superiore è visibile
+                // o se il centro della viewport è all'interno della sezione
+                if (scrollPosition >= sectionTop - window.innerHeight / 2 && scrollPosition < sectionTop + sectionHeight - window.innerHeight / 2) {
+                     if (distance < minDistance) {
+                        minDistance = distance;
+                        closestSectionId = section.id;
+                    }
                 }
             });
-            if (!current && pageYOffset < (sections[0]?.offsetTop || 0)) {
-                current = sections[0]?.id || '';
+            current = closestSectionId;
+
+            // Caso speciale per quando si è in cima alla pagina
+            if (window.pageYOffset < (sections[0]?.offsetTop - window.innerHeight / 3) && sections[0]) {
+                 current = sections[0].id;
             }
+            // Caso speciale per quando si è in fondo alla pagina
+             const totalPageHeight = document.documentElement.scrollHeight;
+             const scrollEnd = window.pageYOffset + window.innerHeight;
+             if (scrollEnd >= totalPageHeight - 50 && sections.length > 0) { // 50px di tolleranza
+                 current = sections[sections.length - 1].id;
+             }
+
+
             navLinks.forEach(link => {
-                link.classList.toggle('attivo', link.getAttribute('href').slice(1) === current);
+                const href = link.getAttribute('href');
+                if (href && href.startsWith("#")) { // Controlla se è un link di ancoraggio interno
+                    link.classList.toggle('attivo', href.slice(1) === current);
+                } else {
+                     link.classList.remove('attivo'); // Rimuovi 'attivo' per link esterni come "Locazione"
+                }
             });
         }
+
         window.addEventListener('scroll', updateActiveLink);
-        window.addEventListener('load', updateActiveLink);
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault();
-                document.querySelector(a.getAttribute('href'))
-                        .scrollIntoView({ behavior: 'smooth' });
+        window.addEventListener('load', updateActiveLink); // Aggiorna al caricamento
+        window.addEventListener('resize', updateActiveLink); // Aggiorna al resize
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const hrefAttribute = this.getAttribute('href');
+                if (hrefAttribute && hrefAttribute !== "#") { // Assicurati che non sia solo "#"
+                    const targetElement = document.querySelector(hrefAttribute);
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                         // Aggiorna il link attivo subito dopo lo scroll manuale
+                        setTimeout(updateActiveLink, 50); // Piccolo ritardo per permettere lo scroll
+                    }
+                }
             });
         });
     </script>
